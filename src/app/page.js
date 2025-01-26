@@ -28,7 +28,7 @@ export default function About() {
           {/* <h1 className="companyName">Zcode</h1> */}
           <div className="font-bold text-3xl text-slate-600 mb-12 md:mb-16 text-center">Into the unknown</div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-3xl">
-            <a href="#" target="_blank" className="BannerCard_bannerCard__8xTj1 relative rounded-2xl pt-6 pb-7 px-8 min-w-0 flex-1 bg-white/50 backdrop-blur-sm cursor-pointer" style={{ boxShadow: '0 0 0 1px #f1f5f9, 0 2px 4px rgba(0, 0, 0, .05), 0 12px 24px rgba(0, 0, 0, .05)' }}>
+            <a href="/playground" target="_blank" className="BannerCard_bannerCard__8xTj1 relative rounded-2xl pt-6 pb-7 px-8 min-w-0 flex-1 bg-white/50 backdrop-blur-sm cursor-pointer" style={{ boxShadow: '0 0 0 1px #f1f5f9, 0 2px 4px rgba(0, 0, 0, .05), 0 12px 24px rgba(0, 0, 0, .05)' }}>
               <span tabIndex="0" style={{ outline: 'none' }}></span>
               <div className="text-xl font-bold mb-2 text-branding">Start Now</div>
               <div className="text-slate-500" style={{ fontSize: '15px' }}>Free access to Zcode-V3. <br />Experience the intelligent model. <br />

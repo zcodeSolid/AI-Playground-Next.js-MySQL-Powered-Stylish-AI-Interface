@@ -49,6 +49,7 @@ export default function SignInPage() {
     return newErrors;
   };
 
+
   const handleSubmit = async (e) => {
     console.log('submitting form');
     e.preventDefault();
@@ -70,7 +71,7 @@ export default function SignInPage() {
     const data = await response.json();
 
     if (response.ok && !data.error) {
-      console.log('User signed in successfully');
+      window.location.href = '/playground';
     } else {
       console.log(data.error)
       setErrors({ inputValue: data.error || 'Something went wrong' });  

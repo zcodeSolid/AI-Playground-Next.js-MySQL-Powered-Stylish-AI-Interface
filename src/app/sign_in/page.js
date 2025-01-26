@@ -7,29 +7,55 @@ export default function SignInPage() {
   const [inputValue, setInputValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
   const [checkboxValue, setCheckboxValue] = useState(false);
+  const [errors, setErrors] = useState({});
 
   const handleInputChange = (event) => {
+    resestInputs(event.target)
     setInputValue(event.target.value);
   };
 
   const handlePasswordChange = (event) => {
+    resestInputs(event.target)
     setPasswordValue(event.target.value);
   };
 
   const handleCheckboxChange = (event) => {
+    resestInputs(event.target)
     setCheckboxValue(event.target.checked);
+  };
+
+  function resestInputs(target) {
+  if(target.parentNode){
+    target.parentNode.classList.remove("ds-input--error");
+  }
+  if(document.querySelectorAll(".ds-form-item--error")[target.getAttribute("data_index")-1]){
+      document.querySelectorAll(".ds-form-item--error")[target.getAttribute("data_index")-1].innerHTML = "";
+  }
+}
+
+  const validateForm = () => {
+    const newErrors = {};
+    if (!inputValue) {
+      newErrors.inputValue = "Please enter the phone number / email address.";
+    }
+    if (!passwordValue) {
+      newErrors.passwordValue = "Please enter the password.";
+    }
+    if (!checkboxValue) {
+      newErrors.checkboxValue = "You must agree to the terms and conditions.";
+    }
+    return newErrors;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if(inputValue === "" || passwordValue === "") {
-      console.log('Email and password are required');
-      document.querySelector('.dnInputBg').classList.add("ds-input--error"); 
-      document.querySelector('.ds-form-item__feedback').innerHTML = `<div class="ds-form-item__feedback-content">Please enter the phone number / email address.</div>`;
+    const validationErrors = validateForm();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
       return;
     }
 
-    const response = await fetch('http://localhost:3000/api/auth/signin', {
+    const response = await fetch('http://localhost:3000/api/auth/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -40,12 +66,15 @@ export default function SignInPage() {
     const data = await response.json();
 
     if (response.ok) {
-      console.log('User created successfully');
-      // setEmail('');
-      // setPassword('');
+      window.location.href = '/playground';
     } else {
       console.log(data.error || 'Something went wrong');
+      if(data.error === 'this account doesn’t exist. Please check and try again'){
+        setErrors({inputValue: data.error})  
+    }else if(data.error === 'Incorrect password. Please check and try again'){
+        setErrors({passwordValue: data.error})
     }
+  }
   }
 
   useEffect(() => {
@@ -88,7 +117,7 @@ export default function SignInPage() {
               <form onSubmit={handleSubmit}>
                 <div className="ds-form-item ds-form-item--none ds-form-item--label-m">
                   <div className="ds-form-item__content">
-                    <div className="dnInputBg ds-input ds-input--none ds-input--bordered ds-input--l">
+                    <div className={`dnInputBg ds-input ds-input--none ds-input--bordered ds-input--l ${errors.inputValue ? "ds-input--error" : ""}`}>
                       <div className="ds-input__icon">
                         <div className="ds-icon" style={{ fontSize: "1em", width: "1em", height: "1em" }}>
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -98,14 +127,14 @@ export default function SignInPage() {
                           </svg>
                         </div>
                       </div>
-                      <input type="text" onChange={handleInputChange} className="ds-input__input" placeholder="Phone number / email address" size="1" />
+                      <input data_index="1" type="text" onChange={handleInputChange} className="ds-input__input" placeholder="Phone number / email address" size="1" />
                     </div>
                   </div>
-                  <div className="ds-form-item__feedback" data-transform-origin="top"></div>
+                  {<div className="e1 ds-form-item__feedback ds-form-item--error" data-transform-origin="top">{errors.inputValue}</div>}
                 </div>
                 <div className="ds-form-item ds-form-item--none ds-form-item--label-m">
                   <div className="ds-form-item__content">
-                    <div className="ds-input ds-input--none ds-input--bordered ds-input--l">
+                    <div className={`ds-input ds-input--none ds-input--bordered ds-input--l ${errors.passwordValue ? "ds-input--error" : ""}`}>
                       <div className="ds-input__icon">
                         <div className="ds-icon" style={{ fontSize: "1em", width: "1em", height: "1em" }}>
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -115,7 +144,7 @@ export default function SignInPage() {
                           </svg>
                         </div>
                       </div>
-                      <input type="password" onChange={handlePasswordChange} className="ds-input__input" placeholder="Password" size="1" />
+                      <input data_index="2" type="password" onChange={handlePasswordChange} className="ds-input__input" placeholder="Password" size="1" />
                       <div className="ds-input__password-toggle">
                         <div className="ds-icon-button" tabIndex="0">
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -126,20 +155,20 @@ export default function SignInPage() {
                       </div>
                     </div>
                   </div>
-                  <div className="ds-form-item__feedback" data-transform-origin="top"></div>
+                  {<div className="e2 ds-form-item__feedback ds-form-item--error" data-transform-origin="top">{errors.passwordValue}</div>}
                 </div>
                 <div className="ds-form-item ds-form-item--none ds-form-item--label-m">
                   <div className="ds-form-item__content">
                     <div className="ds-checkbox-wrapper ds-checkbox-wrapper--block ds-checkbox-wrapper--s">
                       <div className="ds-checkbox-align-wrapper">
-                        <input onChange={handleCheckboxChange} style={{ margin: "0 10px 0 0", cursor: "pointer" }} type="checkbox" />
+                        <input data_index="3" onChange={handleCheckboxChange} style={{ margin: "0 10px 0 0", cursor: "pointer" }} type="checkbox" />
                       </div>
                       <div className="ds-checkbox-label">I confirm that I have read, consent and agree to DeepSeek's <a href="#" target="_blank" rel="noopener noreferrer" className="ds-a ds-a--link">
                         <span aria-hidden="true" tabIndex="-1" style={{ position: "fixed", userSelect: "none", opacity: 0, width: "0px", height: "0px", display: "block" }}></span>Terms of Use </a> and <a href="#" target="_blank" rel="noopener noreferrer" className="ds-a ds-a--link">
                         <span aria-hidden="true" tabIndex="-1" style={{ position: "fixed", userSelect: "none", opacity: 0, width: "0px", height: "0px", display: "block" }}></span>Privacy Policy </a>. </div>
                     </div>
                   </div>
-                  <div className="ds-form-item__feedback" data-transform-origin="top"></div>
+                  {<div className="e3 ds-form-item__feedback ds-form-item--error" data-transform-origin="top">{errors.checkboxValue}</div>}
                 </div>
                 <button style={{width:"100%"}} type="submit" className="ds-button ds-button--primary ds-button--filled ds-button--rect ds-button--block ds-button--l ds-sign-up-form__register-button" tabIndex="0">Log in</button>
               </form>
