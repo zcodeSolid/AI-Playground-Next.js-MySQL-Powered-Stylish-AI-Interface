@@ -1,95 +1,154 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+// src/app/about/page.js
+import Image from 'next/image';
+// import MyImage from '/public/images/Zcode.png';
 
-export default function Home() {
+export default function About() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+    <main className="flex min-h-screen flex-col items-center justify-between">
+      <div className="w-full bg-center bg-cover px-8" style={{ backgroundImage: 'url(/images/banner-background.webp)' }}>
+        <div className="flex flex-col items-center w-full pt-24 md:pt-32 pb-20 md:pb-40">
+          <Image
+            src="/images/Zcode.png"
+            alt="Zcode Logo"
+            width={1780}
+            height={565}
+            className="max-w-28 absolute top-4 left-4"
+          />
+          <div className="mb-12 md:mb-16 text-slate-400 text-center text-sm">
+            <a target="_blank" href="#" style={{ display: 'block' }} className="ds-a ds-a--link">
+              <span aria-hidden="true" tabIndex="-1" style={{ position: 'fixed', userSelect: 'none', msUserSelect: 'none', WebkitUserSelect: 'none', MozUserSelect: 'none', opacity: 0, width: 0, height: 0, display: 'block' }}></span>🎉 Zcode-R1 is now live and open source, rivaling OpenAI's Model o1. Available on web, app, and API. Click for details. </a>
+          </div>
+          <Image
+            src="/images/Zcode-H.png"
+            alt="Zcode Title"
+            width={1780}
+            height={565}
+            className="max-w-28"
+          />
+          {/* <h1 className="companyName">Zcode</h1> */}
+          <div className="font-bold text-3xl text-slate-600 mb-12 md:mb-16 text-center">Into the unknown</div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-3xl">
+            <a href="#" target="_blank" className="BannerCard_bannerCard__8xTj1 relative rounded-2xl pt-6 pb-7 px-8 min-w-0 flex-1 bg-white/50 backdrop-blur-sm cursor-pointer" style={{ boxShadow: '0 0 0 1px #f1f5f9, 0 2px 4px rgba(0, 0, 0, .05), 0 12px 24px rgba(0, 0, 0, .05)' }}>
+              <span tabIndex="0" style={{ outline: 'none' }}></span>
+              <div className="text-xl font-bold mb-2 text-branding">Start Now</div>
+              <div className="text-slate-500" style={{ fontSize: '15px' }}>Free access to Zcode-V3. <br />Experience the intelligent model. <br />
+              </div>
+              <div className="BannerCard_bannerCardOutline__YdEky absolute text-branding"></div>
+            </a>
+            <div href="#" target="_blank" className="BannerCard_bannerCard__8xTj1 relative rounded-2xl pt-6 pb-7 px-8 min-w-0 flex-1 bg-white/50 backdrop-blur-sm cursor-default" style={{ boxShadow: '0 0 0 1px #f1f5f9, 0 2px 4px rgba(0, 0, 0, .05), 0 12px 24px rgba(0, 0, 0, .05)' }}>
+              <span tabIndex="0" style={{ outline: 'none' }}></span>
+              <div className="text-xl font-bold mb-2 text-branding">Get DeepSeek App</div>
+              <div className="text-slate-500" style={{ fontSize: '15px' }}>Chat on the go with Zcode-V3 <br />Your free all-in-one AI tool <br />
+              </div>
+              <div className="BannerCard_bannerCardOutline__YdEky absolute text-branding"></div>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        <div className="flex gap-6 !absolute right-6 top-4">
+          <div className="flex border-b border-slate-600">
+            <a href="#" target="_blank" className="ds-a ds-a--link text-sm !text-slate-600 cursor-pointer font-semibold">
+              <span aria-hidden="true" tabIndex="-1" style={{ position: 'fixed', userSelect: 'none', msUserSelect: 'none', WebkitUserSelect: 'none', MozUserSelect: 'none', opacity: 0, width: 0, height: 0, display: 'block' }}></span>API Platform ↗ </a>
+          </div>
+        </div>
+      </div>
+      <div className="w-full relative">
+        <div className="border-t-1 pt-16 border-slate-200 px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 max-w-6xl m-auto mb-16" style={{ fontSize: '15px' }}>
+            <div className="flex flex-col gap-2 col-span-1 sm:col-span-2 order-last lg:order-first items-start">
+            <Image
+                src="/images/Zcode-H.png"
+                alt="Zcode Logo"
+                width={140}
+                height={65}
+                className="absolute top-4 "
+                style={{ marginBottom: '40px'}}
+              />
+              <div className="flex items-center">
+                <a title="Zcode_ai:email" href="mailto:contact@zcode.site" className="ds-a ds-a--link hover:!text-[#4D6BFE] !text-slate-400 inline-flex transition-all duration-200 ease-in-out">
+                  <span aria-hidden="true" tabIndex="-1" style={{ position: 'fixed', userSelect: 'none', msUserSelect: 'none', WebkitUserSelect: 'none', MozUserSelect: 'none', opacity: 0, width: 0, height: 0, display: 'block' }}></span>
+                  <div className="ds-icon" style={{ fontSize: '24px', width: '24px', height: '24px' }}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                      <path fill="currentColor" d="m20 8l-8 5l-8-5V6l8 5l8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2"></path>
+                    </svg>
+                  </div>
+                </a>
+                <span className="icon-link ml-6 inline-flex">
+                  <a title="#" href="#" target="_blank" className="ds-a ds-a--link hover:!text-[#4D6BFE] !text-slate-400 inline-flex transition-all duration-200 ease-in-out" style={{ '--a-text-color': '#020E364D' }}>
+                    <span aria-hidden="true" tabIndex="-1" style={{ position: 'fixed', userSelect: 'none', opacity: 0, width: 0, height: 0, display: 'block' }}></span>
+                    <div className="ds-icon" style={{ fontSize: '30px', width: '30px', height: '30px' }}>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M9.5 4C5.36 4 2 6.69 2 10c0 1.89 1.08 3.56 2.78 4.66L4 17l2.5-1.5c.89.31 1.87.5 2.91.5A5.22 5.22 0 0 1 9 14c0-3.31 3.13-6 7-6c.19 0 .38 0 .56.03C15.54 5.69 12.78 4 9.5 4m-3 2.5a1 1 0 0 1 1 1a1 1 0 0 1-1 1a1 1 0 0 1-1-1a1 1 0 0 1 1-1m5 0a1 1 0 0 1 1 1a1 1 0 0 1-1 1a1 1 0 0 1-1-1a1 1 0 0 1 1-1M16 9c-3.31 0-6 2.24-6 5s2.69 5 6 5c.67 0 1.31-.08 1.91-.25L20 20l-.62-1.87C20.95 17.22 22 15.71 22 14c0-2.76-2.69-5-6-5m-2 2.5a1 1 0 0 1 1 1a1 1 0 0 1-1 1a1 1 0 0 1-1-1a1 1 0 0 1 1-1m4 0a1 1 0 0 1 1 1a1 1 0 0 1-1 1a1 1 0 0 1-1-1a1 1 0 0 1 1-1"></path>
+                      </svg>
+                    </div>
+                  </a>
+                </span>
+                <span className="icon-link ml-6 inline-flex">
+                  <a title="#" href="#" target="_blank" style={{ '--a-text-color': '#020E364D' }} className="ds-a ds-a--link !text-slate-400 hover:!text-[#4D6BFE] inline-flex transition-all duration-200 ease-in-out">
+                    <span aria-hidden="true" tabIndex="-1" style={{ position: 'fixed', userSelect: 'none', msUserSelect: 'none', WebkitUserSelect: 'none', MozUserSelect: 'none', opacity: 0, width: 0, height: 0, display: 'block' }}></span>
+                    <div className="ds-icon" style={{ fontSize: '24px', width: '24px', height: '24px' }}>
+                      <svg viewBox="0 0 16 16">
+                        <path fill="currentColor" d="M9.47961 11.0918C10.0281 11.0173 10.5294 10.9332 11.0122 10.7504C12.2048 10.2972 12.8407 9.43811 13.0342 8.24231C13.125 7.68079 13.1637 7.11926 13.0342 6.55615C12.9282 6.10303 12.7213 5.7002 12.41 5.349C12.3309 5.25842 12.3041 5.18555 12.3461 5.06909C12.5732 4.44446 12.4673 3.83606 12.2368 3.23413C12.2014 3.14185 12.1224 3.14832 12.0518 3.14514C11.8179 3.13379 11.5958 3.18884 11.3772 3.26648C10.9381 3.42346 10.5243 3.62891 10.1307 3.87329C10.0348 3.93311 9.95239 3.94604 9.84131 3.92017C8.59814 3.61768 7.3551 3.62244 6.11194 3.92834C6.02283 3.95093 5.95886 3.9364 5.88818 3.8894C5.46094 3.6095 4.995 3.40723 4.5105 3.2406C4.31873 3.17419 4.12195 3.13708 3.91833 3.14514C3.82251 3.15002 3.76526 3.18237 3.72998 3.27942C3.50952 3.88135 3.43054 4.48657 3.65588 5.10303C3.68787 5.18884 3.67615 5.24866 3.61719 5.31348C3.12268 5.85229 2.89221 6.48987 2.87878 7.20178C2.86694 7.83777 2.95447 8.45752 3.18823 9.06104C3.4928 9.84265 4.05969 10.3588 4.83679 10.6953C5.32629 10.9073 5.84448 11.006 6.37097 11.074C6.40466 11.0789 6.43665 11.0837 6.49548 11.0918C6.33899 11.2876 6.18762 11.4672 6.12207 11.6937C6.09851 11.7731 6.05811 11.8523 6.0531 11.9332C6.04468 12.0724 5.974 12.1388 5.84277 12.1792C5.51978 12.2762 5.19006 12.3345 4.85535 12.2957C4.35913 12.239 4.01758 11.9495 3.76868 11.5546C3.52136 11.1598 3.19336 10.8668 2.73071 10.7245C2.5625 10.6727 2.39258 10.6549 2.22107 10.7051C2.10999 10.7374 2.07129 10.7972 2.14197 10.9041C2.20422 11.0012 2.28162 11.0853 2.38086 11.1404C2.82324 11.3815 3.07727 11.7698 3.2522 12.2035C3.47253 12.7455 3.85608 13.0853 4.44482 13.2019C4.91089 13.2941 5.38354 13.3103 5.85449 13.2278C5.98071 13.2051 6.00256 13.2358 6.00085 13.3458C5.99756 13.7455 6.00427 14.1453 6.00427 14.5449C6.00427 14.9187 5.77209 15.0822 5.39868 14.9591C4.75781 14.7488 4.15381 14.4689 3.58691 14.1096C2.58264 13.4738 1.78198 12.6484 1.15283 11.6711C0.535522 10.71 0.172119 9.66138 0.0493164 8.53516C-0.134033 6.84253 0.188965 5.25195 1.10242 3.79395C2.3606 1.7843 4.19421 0.535034 6.60144 0.127319C8.51245 -0.196289 10.3342 0.0932617 12.0198 1.03992C13.485 1.86194 14.5717 3.02698 15.2866 4.51086C15.761 5.49304 15.9932 6.53186 15.9999 7.60474C16.0083 8.96228 15.6953 10.252 14.9838 11.4413C14.2 12.7504 13.1317 13.7811 11.7422 14.4932C11.3755 14.6808 10.9937 14.8346 10.5983 14.9608C10.2249 15.0804 9.9978 14.9219 9.99609 14.5433C9.99609 13.8993 9.99268 13.2552 9.99609 12.6112C9.99951 12.061 9.92712 11.532 9.47961 11.0918Z"></path>
+                      </svg>
+                    </div>
+                  </a>
+                </span>
+                <span className="icon-link ml-6 inline-flex">
+                  <a title="deepseek_ai:twitter" href="#" target="_blank" className="ds-a ds-a--link hover:!text-[#4D6BFE] !text-slate-400 inline-flex transition-all duration-200 ease-in-out" style={{ '--a-text-color': '#020E364D' }}>
+                    <span aria-hidden="true" tabIndex="-1" style={{ position: 'fixed', userSelect: 'none', opacity: 0, width: 0, height: 0, display: 'block' }}></span>
+                    <div className="ds-icon" style={{ fontSize: '24px', width: '24px', height: '24px' }}>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M18.205 2.25h3.308l-7.227 8.26l8.502 11.24H16.13l-5.214-6.817L4.95 21.75H1.64l7.73-8.835L1.215 2.25H8.04l4.713 6.231zm-1.161 17.52h1.833L7.045 4.126H5.078z"></path>
+                      </svg>
+                    </div>
+                  </a>
+                </span>
+              </div>
+              <div className="flex flex-col gap-3 items-start">
+                <div className="text-sm mt-6 text-slate-400">© 2025 Zcode. All rights reserved.</div>
+                <a href="https://zcode.site/" target="_blank" className="ds-a ds-a--link text-sm !text-slate-400">
+                  <span aria-hidden="true" tabIndex="-1" style={{ position: 'fixed', userSelect: 'none', msUserSelect: 'none', WebkitUserSelect: 'none', MozUserSelect: 'none', opacity: 0, width: 0, height: 0, display: 'block' }}></span>Zcode.site </a>
+              </div>
+            </div>
+            <div className="flex flex-col gap-1 text-slate-600 col-span-1 items-start">
+              <div className="text-slate-700 font-bold mb-1">Research</div>
+              <a target="_blank" href="#" style={{ '--a-text-color': 'inherit' }} className="ds-a ds-a--link cursor-pointer">
+                <span aria-hidden="true" tabIndex="-1" style={{ position: 'fixed', userSelect: 'none', msUserSelect: 'none', WebkitUserSelect: 'none', MozUserSelect: 'none', opacity: 0, width: 0, height: 0, display: 'block' }}></span>Zcode LLM </a>
+              <a target="_blank" href="#" style={{ '--a-text-color': 'inherit' }} className="ds-a ds-a--link cursor-pointer">
+                <span aria-hidden="true" tabIndex="-1" style={{ position: 'fixed', userSelect: 'none', msUserSelect: 'none', WebkitUserSelect: 'none', MozUserSelect: 'none', opacity: 0, width: 0, height: 0, display: 'block' }}></span>Zcode Coder </a>
+              <a target="_blank" href="#" style={{ '--a-text-color': 'inherit' }} className="ds-a ds-a--link cursor-pointer">
+                <span aria-hidden="true" tabIndex="-1" style={{ position: 'fixed', userSelect: 'none', msUserSelect: 'none', WebkitUserSelect: 'none', MozUserSelect: 'none', opacity: 0, width: 0, height: 0, display: 'block' }}></span>Zcode Math </a>
+              <a target="_blank" href="#" style={{ '--a-text-color': 'inherit' }} className="ds-a ds-a--link cursor-pointer">
+                <span aria-hidden="true" tabIndex="-1" style={{ position: 'fixed', userSelect: 'none', msUserSelect: 'none', WebkitUserSelect: 'none', MozUserSelect: 'none', opacity: 0, width: 0, height: 0, display: 'block' }}></span>Zcode VL </a>
+              <a target="_blank" href="#" style={{ '--a-text-color': 'inherit' }} className="ds-a ds-a--link cursor-pointer">
+                <span aria-hidden="true" tabIndex="-1" style={{ position: 'fixed', userSelect: 'none', msUserSelect: 'none', WebkitUserSelect: 'none', MozUserSelect: 'none', opacity: 0, width: 0, height: 0, display: 'block' }}></span>Zcode V2 </a>
+              <a target="_blank" href="#" style={{ '--a-text-color': 'inherit' }} className="ds-a ds-a--link cursor-pointer">
+                <span aria-hidden="true" tabIndex="-1" style={{ position: 'fixed', userSelect: 'none', msUserSelect: 'none', WebkitUserSelect: 'none', MozUserSelect: 'none', opacity: 0, width: 0, height: 0, display: 'block' }}></span>Zcode Coder V2 </a>
+              <a target="_blank" href="h#" style={{ '--a-text-color': 'inherit' }} className="ds-a ds-a--link cursor-pointer">
+                <span aria-hidden="true" tabIndex="-1" style={{ position: 'fixed', userSelect: 'none', msUserSelect: 'none', WebkitUserSelect: 'none', MozUserSelect: 'none', opacity: 0, width: 0, height: 0, display: 'block' }}></span>Zcode V3 </a>
+            </div>
+            <div className="flex flex-col gap-1 text-slate-600 col-span-1 items-start">
+              <div className="text-slate-700 font-bold mb-1">Product</div>
+              <a target="_blank" href="#" style={{ '--a-text-color': 'inherit' }} className="ds-a ds-a--link cursor-pointer">
+                <span aria-hidden="true" tabIndex="-1" style={{ position: 'fixed', userSelect: 'none', msUserSelect: 'none', WebkitUserSelect: 'none', MozUserSelect: 'none', opacity: 0, width: 0, height: 0, display: 'block' }}></span>Zcode App </a>
+              <a target="_blank" href="#" style={{ '--a-text-color': 'inherit' }} className="ds-a ds-a--link cursor-pointer">
+                <span aria-hidden="true" tabIndex="-1" style={{ position: 'fixed', userSelect: 'none', msUserSelect: 'none', WebkitUserSelect: 'none', MozUserSelect: 'none', opacity: 0, width: 0, height: 0, display: 'block' }}></span>Zcode Chat </a>
+              <a target="_blank" href="#" style={{ '--a-text-color': 'inherit' }} className="ds-a ds-a--link cursor-pointer">
+                <span aria-hidden="true" tabIndex="-1" style={{ position: 'fixed', userSelect: 'none', msUserSelect: 'none', WebkitUserSelect: 'none', MozUserSelect: 'none', opacity: 0, width: 0, height: 0, display: 'block' }}></span>Zcode Platform </a>
+              <a target="_blank" href="#" style={{ '--a-text-color': 'inherit' }} className="ds-a ds-a--link cursor-pointer">
+                <span aria-hidden="true" tabIndex="-1" style={{ position: 'fixed', userSelect: 'none', msUserSelect: 'none', WebkitUserSelect: 'none', MozUserSelect: 'none', opacity: 0, width: 0, height: 0, display: 'block' }}></span>API Pricing </a>
+              <a target="_blank" href="#" style={{ '--a-text-color': 'inherit' }} className="ds-a ds-a--link cursor-pointer">
+                <span aria-hidden="true" tabIndex="-1" style={{ position: 'fixed', userSelect: 'none', msUserSelect: 'none', WebkitUserSelect: 'none', MozUserSelect: 'none', opacity: 0, width: 0, height: 0, display: 'block' }}></span>Service Status </a>
+            </div>
+            <div className="flex flex-col gap-1 t text-slate-600 col-span-1 items-start">
+              <div className="text-slate-700 font-bold mb-1">Legal &amp; Safety</div>
+              <a target="_blank" href="#" style={{ '--a-text-color': 'inherit' }} className="ds-a ds-a--link cursor-pointer">
+                <span aria-hidden="true" tabIndex="-1" style={{ position: 'fixed', userSelect: 'none', msUserSelect: 'none', WebkitUserSelect: 'none', MozUserSelect: 'none', opacity: 0, width: 0, height: 0, display: 'block' }}></span>Privacy Policy </a>
+              <a target="_blank" href="#" style={{ '--a-text-color': 'inherit' }} className="ds-a ds-a--link cursor-pointer">
+                <span aria-hidden="true" tabIndex="-1" style={{ position: 'fixed', userSelect: 'none', msUserSelect: 'none', WebkitUserSelect: 'none', MozUserSelect: 'none', opacity: 0, width: 0, height: 0, display: 'block' }}></span>Terms of Use </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
   );
 }
